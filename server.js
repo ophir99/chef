@@ -19,19 +19,14 @@ app.get('/', function(req, res){
 
 
 app.post('/users', function(req, res){
-    const s =  userX.user.Save(req);
-    s.then(function(x){
-        res.send(x);
-    })
+    const s =  userX.user.Save(req, res);
+    
 });
 
 app.post('/login', function(req, res){
-    const s =  userX.user.login(req);
-    s.then(function(x){
-        res.send(x);
-    }).catch(function(){
-        res.send('err');
-    })
+    console.log(req.body);
+    const s =  userX.user.login(req,res);
+    
 });
 
 
