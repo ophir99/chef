@@ -17,6 +17,7 @@ module.exports.user={
             lname: req.body.lname,
             user_name: req.body.user_name,
             email: req.body.email,
+	    date: new Date(),
             password: req.body.password,
         });
         return userx.save()
@@ -24,7 +25,7 @@ module.exports.user={
      login: function(req){
            let email =  req.body.email;
            let password = req.body.password
-           return UserModel.findOne({email,password}, '_id', function(err,data){
+           return UserModel.findOne({email:email,password:password}, '_id', function(err,data){
             if(err){
                 return 'Login Failed!!. Try Again';
             }
