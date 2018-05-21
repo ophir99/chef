@@ -12,24 +12,7 @@ const UserModel =  mongoose.model('UserModel', userSchema);
 module.exports.user={
      Save: function(req,x){
         console.log(req.body);
-<<<<<<< HEAD
-        let userx = new UserModel({
-            fname: req.body.fname,
-            lname: req.body.lname,
-            user_name: req.body.user_name,
-            email: req.body.email,
-	    date: new Date(),
-            password: req.body.password,
-        });
-        return userx.save()
-     },
-     login: function(req){
-           let email =  req.body.email;
-           let password = req.body.password
-           return UserModel.findOne({email:email,password:password}, '_id', function(err,data){
-=======
         UserModel.find({email: req.body.email}, function(err,res){
->>>>>>> 1373babef25fff35e0fbd8ba5114ee9dc4aa6fda
             if(err){
                 console.log("err",err);
                 x.send(res);
